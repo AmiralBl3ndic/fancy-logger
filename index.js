@@ -30,6 +30,7 @@ class FancyLogger {
     this.line = "";
   }
 
+
   /** Function that adds a tag to the current line
    *
    * @param {Object} tag - Object that represents the tag to add
@@ -62,6 +63,9 @@ class FancyLogger {
   /** Function that adds one or multiple tags to the current line
    *
    * @param {...Object | Object[]} tags - Object(s) that represents the tag(s) to add
+   * @param {String} tags.content - Content of the tag ("test" yields "[test]")
+   * @param {String} [tags.color = "default"] - Foreground color of the tag
+   * @param {String} [tags.bgColor = "default"] - Background color of the tag
    */
   addTags (tags) {
     let n = arguments.length;
@@ -73,6 +77,51 @@ class FancyLogger {
       }
       else
         this.addTag(arguments[i]);
+    }
+  }
+
+
+  /** Function that adds a tag to the current line
+   *
+   * @param {Object} tag - Object that represents the tag to add
+   * @param {String} tag.content - Content of the tag ("test" yields "[test]")
+   * @param {String} [tag.color = "default"] - Foreground color of the tag
+   * @param {String} [tag.bgColor = "default"] - Background color of the tag
+   */
+  removeTag (tag = {
+    color: "default",
+    bgColor: "default",
+    content: null
+  }) {
+    if (!(tag instanceof Object) || tag.content == null || tag.content === undefined)
+      return;
+    tag.color = tag.color.trim();
+    tag.bgColor = tag.bgColor.trim();
+    tag.content = tag.content.trim();
+
+    const index = this.tags.indexOf(tag);
+    if (index !== -1)
+      this.tags.splice(index, 1);
+  }
+
+
+  /** Function that removes one or multiple tags from the current line
+   *
+   * @param {...Object | Object[]} tags - Object(s) that represents the tag(s) to remove
+   * @param {String} tags.content - Content of the tag ("test" yields "[test]")
+   * @param {String} [tags.color = "default"] - Foreground color of the tag
+   * @param {String} [tags.bgColor = "default"] - Background color of the tag
+   */
+  removeTags (tags) {
+    let n = arguments.length;
+
+    for (let i = 0; i < n; i++) {
+      if (arguments[i] instanceof Array) {
+        for (let j = 0; j < arguments[i].length; j++)
+          this.removeTag(arguments[i][j]);
+      }
+      else
+        this.removeTag(arguments[i]);
     }
   }
 }
