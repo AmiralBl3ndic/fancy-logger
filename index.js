@@ -27,5 +27,52 @@ const colors = {
 class FancyLogger {
   constructor () {
     this.tags = [];
+    this.line = "";
+  }
+
+  /** Function that adds a tag to the current line
+   *
+   * @param {Object} tag - Object that represents the tag to add
+   * @param {String} tag.content - Content of the tag ("test" yields "[test]")
+   * @param {String} [tag.color = "default"] - Foreground color of the tag
+   * @param {String} [tag.bgColor = "default"] - Background color of the tag
+   */
+  addTag (tag = {
+    color: "default",
+    bgColor: "default",
+    content: null
+  }) {
+    if (!(tag instanceof Object) || tag.content == null || tag.content === undefined)
+      return;
+
+    tag.color = tag.color.trim();
+    tag.bgColor = tag.bgColor.trim();
+    tag.content = tag.content.trim();
+
+    let exists = false;
+    for (let nTag of this.tags)
+      if (nTag.color === tag.color && nTag.bgColor === tag.bgColor && nTag.content === tag.content)
+        exists = true;
+
+    if (!exists)
+      this.tags.push(tag);
+  }
+
+
+  /** Function that adds one or multiple tags to the current line
+   *
+   * @param {...Object | Object[]} tags - Object(s) that represents the tag(s) to add
+   */
+  addTags (tags) {
+    let n = arguments.length;
+
+    for (let i = 0; i < n; i++) {
+      if (arguments[i] instanceof Array) {
+        for (let j = 0; j < arguments[i].length; j++)
+          this.addTag(arguments[i][j]);
+      }
+      else
+        this.addTag(arguments[i]);
+    }
   }
 }
