@@ -24,6 +24,16 @@ const colors = {
 };
 
 
+/** Function that converts a tag Object to string
+ *
+ * @param {Object} tag
+ */
+renderTag = tag => {
+  return colors[tag.bgColor] + colors[tag.color] + `[${tag.content}]`;
+};
+
+
+
 class FancyLogger {
   constructor () {
     this.tags = [];
