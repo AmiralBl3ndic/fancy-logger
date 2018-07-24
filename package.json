@@ -1,0 +1,21 @@
+{
+  "name": "fancy-logger",
+  "version": "0.0.0",
+  "description": "A fancy logger for precise, tagged messages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "log",
+    "logger",
+    "console",
+    "fancy",
+    "debug"
+  ],
+  "author": "AmiralBl3ndic <camille.briand@efrei.net>",
+  "license": "MIT",
+  "dependencies": {
+    "fancy-log": "^1.3.2"
+  }
+}
