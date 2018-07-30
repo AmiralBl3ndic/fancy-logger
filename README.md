@@ -1,5 +1,5 @@
 # Demo
-![Demonstration of fancy-logger](./doc/fancy-logger-demo%232.png);
+![Demonstration of fancy-logger](./doc/fancy-logger-demo%232.png)
 
 ---
 
