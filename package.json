@@ -1,5 +1,5 @@
 {
-  "name": "fancy-logger",
+  "name": "simple-fancy-log",
   "version": "1.0.0",
   "description": "A fancy logger for precise, tagged messages",
   "main": "index.js",
