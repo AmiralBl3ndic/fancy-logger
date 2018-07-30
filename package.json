@@ -3,9 +3,19 @@
   "version": "1.0.0",
   "description": "A fancy logger for precise, tagged messages",
   "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {
+    "fancy-log": "^1.3.2"
+  },
+  "devDependencies": {},
   "scripts": {
-    "demo1": "node demo.js --demo1",
-    "demo2": "node demo.js --demo2"
+    "test": "node demo.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmiralBl3ndic/fancy-logger.git"
   },
   "keywords": [
     "log",
@@ -14,13 +24,10 @@
     "fancy",
     "debug"
   ],
-  "author": {
-    "name": "Camille Briand",
-    "email": "camille.briand@efrei.net"
-  },
-  "repository": "github:AmiralBl3ndic/fancy-logger",
+  "author": "amiral-blendic <camille.briand@efrei.net>",
   "license": "MIT",
-  "dependencies": {
-    "fancy-log": "^1.3.2"
-  }
+  "bugs": {
+    "url": "https://github.com/AmiralBl3ndic/fancy-logger/issues"
+  },
+  "homepage": "https://github.com/AmiralBl3ndic/fancy-logger#readme"
 }
