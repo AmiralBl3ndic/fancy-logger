@@ -33,22 +33,7 @@ const colors = {
  * @param {String} [tag.bgColor = "default"] - Background color of the tag
  */
 renderTag = tag => {
-  let ret = "";
-
-  if (tag.bgColor !== "") {
-    console.debug("Background color set");
-    ret += colors[tag.bgColor];
-  }
-
-
-  if (tag.color !== "") {
-    console.debug("Foreground color set: '", tag.color, "'");
-    ret += colors[tag.color];
-  }
-
-  ret += `[${tag.content}]`;
-
-  return ret;
+  return tag.color + "[" + tag.bgColor + tag.content + colors.default + tag.color + "]";
 };
 
 
