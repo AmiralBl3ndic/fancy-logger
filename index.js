@@ -231,12 +231,3 @@ class FancyLogger {
 
 
 module.exports = FancyLogger;
-
-
-
-// TEST
-
-const logger = new FancyLogger();
-
-logger.addTag({color: "red", content: "Login"});
-logger.log("New connection");
