@@ -14,7 +14,11 @@
     "fancy",
     "debug"
   ],
-  "author": "AmiralBl3ndic <camille.briand@efrei.net>",
+  "author": {
+    "name": "Camille Briand",
+    "email": "camille.briand@efrei.net"
+  },
+  "repository": "github:AmiralBl3ndic/fancy-logger",
   "license": "MIT",
   "dependencies": {
     "fancy-log": "^1.3.2"
