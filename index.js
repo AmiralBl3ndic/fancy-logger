@@ -112,6 +112,11 @@ class SimpleFancyLog {
   }
 
 
+  static createTag () {
+
+  }
+
+
   /** Function that adds a tag to the current line
    *
    * @param {Object} tag - Object that represents the tag to add
