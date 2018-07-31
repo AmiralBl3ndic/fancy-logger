@@ -1,5 +1,9 @@
 const SimpleFancyLog = require("./index");
-const tags = require("./tags");
+
+SimpleFancyLog.createTag({type: "error", name: "cli-argument-error", color: "red", content: "Command Line Argument"});
+SimpleFancyLog.createTag({name: "account-creation", content: "New account", color: "yellow", bgColor: "magenta"});
+SimpleFancyLog.createTag({name: "connection", content: "Connection", color: "green"});
+SimpleFancyLog.createTag({name: "disconnection", content: "Disconnection", color: "red"});
 
 const logger = new SimpleFancyLog();
 
@@ -15,11 +19,11 @@ for (let arg of args) {
 
     console.log("And so on...");
     console.log("To ease finding the pieces of data you need, fancy-logger allows to have this king of logs:\n");
-    logger.addTag({color: "green", content: "Connection"});
+    logger.addTag("connection");
     logger.log("User connected: 'Username'");
-    logger.addTag({color: "red", content: "Disconnection"});
+    logger.addTag("disconnection");
     logger.log("User disconnected: 'Username'");
-    logger.addTags({bgColor: "magenta", color: "yellow", content: "New account"}, {color: "green", content: "Connection"});
+    logger.addTags("account-creation", "connection");
     logger.log("Account created: 'Username#2'");
 
     console.log("\n\n\n");
@@ -55,5 +59,6 @@ for (let arg of args) {
   }
 }
 
-logger.addTag({color: "red", content: "Command Line Argument"});
+
+logger.addTag("cli-argument-error");
 logger.log("You must pass on a command line parameter of the following:\n\t\t--demo1\n\t\t--demo2");

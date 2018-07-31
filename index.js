@@ -216,7 +216,7 @@ class SimpleFancyLog {
 
   /** Function that adds one or multiple _tags to the current line
    *
-   * @param {...Object | Object[]} tags - Object(s) that represents the tag(s) to add
+   * @param {...Object | Object[]} tags - Object(s) that represents the tag(s) to add, can be the names of the tags to add
    * @param {String} tags.content - Content of the tag ("test" yields "[test]")
    * @param {String} [tags.color = "default"] - Foreground color of the tag
    * @param {String} [tags.bgColor = "default"] - Background color of the tag
