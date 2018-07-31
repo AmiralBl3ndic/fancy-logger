@@ -30,7 +30,7 @@ The module exports the class, so you have to create your own instance:
 This is what you will have to write in order to obtain the same log as [above](#with-simple-fancy-log) (comparative log between )
 
 ```JavaScript
-const FancyLogger = require("simple-fancy-log");
+const SimpleFancyLog = require("simple-fancy-log");
 
 const logger = new SimpleFancyLog();
 
@@ -47,6 +47,29 @@ logger.addTags(
   {bgColor: "magenta", color: "yellow", content: "New account"},
   {color: "green", content: "Connection"}
 );
+logger.log("Account created: 'Username#2'");
+```
+
+Alternatively, since the 2.1.0, you can use the following example to obtain the same result
+```JavaScript
+const SimpleFancyLog = require("simple-fancy-log");
+const logger = new SimpleFancyLog();
+
+// Creating re-usable tags
+SimpleFancyLog.createTag({name: "connection", content: "Connection", color: "green"});
+SimpleFancyLog.createTag({name: "disconnection", content: "Disconnection", color: "red"});
+SimpleFancyLog.createTag({name: "account-creation", content: "New account", color: "yellow", bgColor: "magenta"});
+
+// To write the first line
+logger.addTag("connection");
+logger.log("User connected: 'Username'");
+
+// To write the second line
+logger.addTag("disconnection");
+logger.log("User disconnected: 'Username'");
+
+// To write the third line
+logger.addTags("account-creation", "connection");
 logger.log("Account created: 'Username#2'");
 ```
 
