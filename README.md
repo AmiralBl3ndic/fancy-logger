@@ -29,7 +29,7 @@ The module exports the class, so you have to create your own instance:
 
 This is what you will have to write in order to obtain the same log as [above](#with-simple-fancy-log) (comparative log between )
 
-```JavaScript
+```javascript
 const SimpleFancyLog = require("simple-fancy-log");
 
 const logger = new SimpleFancyLog();
@@ -51,7 +51,7 @@ logger.log("Account created: 'Username#2'");
 ```
 
 Alternatively, since the 2.1.0, you can use the following example to obtain the same result
-```JavaScript
+```javascript
 const SimpleFancyLog = require("simple-fancy-log");
 const logger = new SimpleFancyLog();
 
