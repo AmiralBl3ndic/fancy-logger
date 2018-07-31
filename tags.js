@@ -1,7 +1,6 @@
 const baseTags = [
   {
     type: "Danger",
-    name: "base-danger",
     color: "white",
     bgColor: "red",
     content: "Danger"
@@ -9,21 +8,18 @@ const baseTags = [
 
   {
     type: "Info",
-    name: "base-info",
     color: "cyan",
     content: "Info"
   },
 
   {
     type: "Debug",
-    name: "base-debug",
     color: "blue",
     content: "Debug"
   },
 
   {
     type: "Success",
-    name: "base-success",
     color: "yellow",
     content: "Success"
   }
@@ -52,13 +48,10 @@ module.exports.findTag = (type = "", name = "") => {
   if (type === "" && name === "")
     return {};
 
-  for (let tag of userTags)
-    if (type === tag.type || name === tag.name)
-      return tag;
-
-  for (let tag of baseTags)
-    if (type === tag.type || name === tag.name)
-      return tag;
+  if (type !== "")
+    for (let tag of baseTags)
+      if (type === tag.type)
+        return tag;
 
   return {};
 };
@@ -70,6 +63,9 @@ module.exports.createTag = newTag => {
     return;
 
   for (let tag of userTags)
-    if (tag.name === newTag.name)
+    if (tag.name === newTag.name) {
+      console.error("At createTag: cannot create tag with an already taken name");
       return;
+    }
+
 };
