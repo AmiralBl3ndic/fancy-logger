@@ -57,7 +57,7 @@ logger.log("Account created: 'Username#2'");
 ##### None of the methods are static, you always need an instance of the SimpleFancyLog class to call them
 
 <dl>
-<dt><a href="#Available-colors">Available colors</a></dt>
+<dt><a href="#available-colors:">Available colors</a></dt>
 <dd><p>List of available colors</p>
 </dd>
 <dt><a href="#addTag">addTag(tag)</a></dt>
