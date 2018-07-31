@@ -85,7 +85,7 @@ checkBackgroundColor = bg => {
 
 
 
-class FancyLogger {
+class SimpleFancyLog {
   constructor () {
     this._tags = [];
     this._message = "";
@@ -230,4 +230,4 @@ class FancyLogger {
 }
 
 
-module.exports = FancyLogger;
+module.exports = SimpleFancyLog;

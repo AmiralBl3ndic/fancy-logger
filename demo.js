@@ -1,10 +1,10 @@
-const FancyLogger = require("./index");
+const SimpleFancyLog = require("./index");
+
+const logger = new SimpleFancyLog();
 
 const args = process.argv;
 for (let arg of args) {
   if (arg === "--demo1") {
-    const logger = new FancyLogger();
-
     console.log("This module helps creating clear, colorful, tagged logs");
 
     console.log("\nThis is what logs basically look like:");
@@ -22,10 +22,10 @@ for (let arg of args) {
     logger.log("Account created: 'Username#2'");
 
     console.log("\n\n\n");
+
+    process.exit();
   }
   else if (arg === "--demo2") {
-    const logger = new FancyLogger();
-
     logger.log("Demo of fancy-logger\n");
 
     logger.addTag({content: "tag"});
@@ -49,5 +49,10 @@ for (let arg of args) {
     logger.log("Test with multiple background and foreground colored tags");
 
     console.log("\n\n\n");
+
+    process.exit();
   }
 }
+
+logger.addTag({color: "red", content: "Command Line Argument"});
+logger.log("You must pass on a command line parameter of the following:\n\t\t--demo1\n\t\t--demo2");

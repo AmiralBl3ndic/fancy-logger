@@ -1,9 +1,9 @@
 # Demo
-![Demonstration of fancy-logger](./doc/fancy-logger-demo%232.png)
+![Demonstration of simple-fancy-log](./doc/fancy-logger-demo%232.png)
 
 ---
 
-# What is `fancy-logger`?
+# What is `simple-fancy-log`?
 
 This module helps creating clear, colorful, tagged logs
 
@@ -16,23 +16,23 @@ Logs are often ugly because not enough effort is put into making them clear and 
 And so on...
 
 
-### With fancy-logger 
-![Comparative demonstration of fancy-logger into action](./doc/fancy-logger-demo%231.png)
+### With simple-fancy-log 
+![Comparative demonstration of simple-fancy-log into action](./doc/fancy-logger-demo%231.png)
 
 
 ---------
 
 # How to use
 
-`fancy-logger` uses a main class: the `FancyLogger` class.
+`simple-fancy-log` uses a main class: the `FancyLogger` class.
 The module exports the class, so you have to create your own instance:
 
-This is what you will have to write in order to obtain the same log as [above](#with-fancy-logger) (comparative log between )
+This is what you will have to write in order to obtain the same log as [above](#with-simple-fancy-log) (comparative log between )
 
 ```JavaScript
-const FancyLogger = require("fancy-logger");
+const FancyLogger = require("simple-fancy-log");
 
-const logger = new FancyLogger();
+const logger = new SimpleFancyLog();
 
 // To write the first line
 logger.addTag({color: "green", content: "Connection"});
@@ -54,9 +54,12 @@ logger.log("Account created: 'Username#2'");
 
 # Reference
 
-##### None of the methods are static, you always need an instance of the FancyLogger class to call them
+##### None of the methods are static, you always need an instance of the SimpleFancyLog class to call them
 
 <dl>
+<dt><a href="#Available-colors">Available colors</a></dt>
+<dd><p>List of available colors</p>
+</dd>
 <dt><a href="#addTag">addTag(tag)</a></dt>
 <dd><p>Function that adds a tag to the current line</p>
 </dd>
@@ -84,7 +87,7 @@ logger.log("Account created: 'Username#2'");
 ## addTag(tag)
 Function that adds a tag to the current line
 
-**Kind**: Method of FancyLogger  
+**Kind**: Method of SimpleFancyLog  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -100,7 +103,7 @@ Function that adds a tag to the current line
 ## addTags(tags)
 Function that adds one or multiple _tags to the current line
 
-**Kind**: Method of FancyLogger  
+**Kind**: Method of SimpleFancyLog  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -116,7 +119,7 @@ Function that adds one or multiple _tags to the current line
 ## removeTag(tag)
 Function that adds a tag to the current line
 
-**Kind**: Method of FancyLogger  
+**Kind**: Method of SimpleFancyLog  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -132,7 +135,7 @@ Function that adds a tag to the current line
 ## removeTags(tags)
 Function that removes one or multiple _tags from the current line
 
-**Kind**: method of FancyLogger
+**Kind**: method of SimpleFancyLog
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -148,7 +151,7 @@ Function that removes one or multiple _tags from the current line
 ## toString() ⇒ <code>String</code>
 Function that returns the string that will be logged when the log function is called
 
-**Kind**: Method of FancyLogger  
+**Kind**: Method of SimpleFancyLog  
 **Returns**: <code>String</code> - - String that will be logged when the log function is called  
 
 
@@ -158,8 +161,27 @@ Function that returns the string that will be logged when the log function is ca
 ## log(message)
 Function that logs a message with all the set tags. This function resets the message and the tags after it is displayed
 
-**Kind**: Method of FancyLogger  
+**Kind**: Method of SimpleFancyLog  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | message | <code>String</code> | Message to display along with the tags |
+
+
+---
+
+# Available colors:
+
+#### The available colors are:
+
+| Color | Foreground (text color) | Background |
+| --- | --- | --- |
+| default (terminal default) | Yes | Yes |
+| red | Yes | Yes |
+| yellow | Yes | Yes |
+| green | Yes | Yes |
+| blue | Yes | Yes |
+| cyan | Yes | Yes |
+| white | Yes | Yes |
+| black | - | Yes |
+| magenta | - | Yes |
