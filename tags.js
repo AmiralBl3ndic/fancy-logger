@@ -1,7 +1,7 @@
 const baseTags = [
   {
     type: "Danger",
-    color: "white",
+    color: "yellow",
     bgColor: "red",
     content: "Danger"
   },
@@ -35,8 +35,6 @@ checkTagIntegrity = tag => {
 };
 
 
-
-
 module.exports.userTags = userTags;
 module.exports.baseTags = baseTags;
 
@@ -48,25 +46,25 @@ module.exports.baseTags = baseTags;
  * @param {String} [toFind.name = ""] - Name of the tag to find (for user defined tags)
  * @return {*} - Either {} or the tag object
  */
-module.exports.findTag = (toFind) => {
+module.exports.findTag = toFind => {
   if (!toFind.hasOwnProperty("type") && !toFind.hasOwnProperty("name"))
     return {};
 
-  const type = toFind.hasOwnProperty("type") ? toFind.type : "";
-  const name = toFind.hasOwnProperty("name") ? toFind.name : "";
+  toFind.type = toFind.hasOwnProperty("type") ? toFind.type : "";
+  toFind.name = toFind.hasOwnProperty("name") ? toFind.name : "";
 
-  if (typeof(type) !== "string" || typeof(name) !== "string")
+  if (typeof(toFind.type) !== "string" || typeof(toFind.name) !== "string")
     return {};
 
   // User defined tags first
-  if (name !== "")
+  if (toFind.name !== "")
     for (let tag of userTags)
-      if (type === tag.type)
+      if (toFind.name === tag.name)
         return tag;
 
-  if (type !== "")
+  if (toFind.type !== "")
     for (let tag of baseTags)
-      if (type === tag.type)
+      if (toFind.type === tag.type)
         return tag;
 
   return {};
@@ -83,15 +81,16 @@ module.exports.findTag = (toFind) => {
  * @param {String} [newTag.bgColor = ""] - Background color of the tag
  * @return {*} - Either {} (in case of an error) or the newly created tag object
  */
-module.exports.createTag = (newTag = {
-  type: "default",
-  color: "",
-  bgColor: ""
-}) => {
+module.exports.createTag = newTag => {
   if (!checkTagIntegrity(newTag)) {
     console.error("At createTag: the newly created tag must have at least 'name' and 'content' properties");
     return {};
   }
+
+  // Setting default values
+  newTag.type = newTag.hasOwnProperty("type") ? newTag.type : "default";
+  newTag.color = newTag.hasOwnProperty("color") ? newTag.color : "";
+  newTag.bgColor = newTag.hasOwnProperty("bgColor") ? newTag.bgColor : "";
 
   // Test for existence
   for (let tag of userTags) {
@@ -106,3 +105,4 @@ module.exports.createTag = (newTag = {
 
   return newTag;
 };
+

@@ -75,6 +75,9 @@ checkBackgroundColor = bg => {
     return "";
   }
 
+  if (bg.length <= 2)
+    return "";
+
   bg = "bg" + bg[0].toUpperCase() + bg.slice(1);
 
   if (colors[bg] !== undefined)
@@ -169,7 +172,7 @@ class SimpleFancyLog {
 
   /** Function that adds a tag to the current line
    *
-   * @param {Object} tag - Object that represents the tag to add
+   * @param {Object | String} tag - Object that represents the tag to add or name of the already created tag to add
    * @param {String} tag.content - Content of the tag ("test" yields "[test]")
    * @param {String} [tag.color = "default"] - Foreground color of the tag
    * @param {String} [tag.bgColor = "default"] - Background color of the tag
@@ -179,6 +182,21 @@ class SimpleFancyLog {
     bgColor: "",
     content: null
   }) {
+
+    // To add a stored tag by its name
+    if (typeof(tag) === "string") {
+      let toPush = this.findTag({name: tag});
+
+      if (toPush.hasOwnProperty("content")) {
+        toPush.color = checkForegroundColor(toPush.color);
+        toPush.bgColor = checkBackgroundColor(toPush.bgColor);
+        toPush.content = toPush.content.trim();
+
+        this._tags.push(toPush);
+      }
+      return;
+    }
+
     if (!(tag instanceof Object) || tag.content == null || tag.content === undefined)
       return;
 
