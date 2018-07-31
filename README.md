@@ -78,13 +78,19 @@ logger.log("Account created: 'Username#2'");
 <dt><a href="#log">log(message)</a></dt>
 <dd><p>Function that logs a message with all the set tags. This function resets the message and the tags after it is displayed</p>
 </dd>
+<dt><a href="#findTag">findTag(toFind)</a> ⇒ <code>*</code></dt>
+<dd><p>Function that looks for a given tag</p>
+</dd>
+<dt><a href="#createTag">createTag(newTag)</a> ⇒ <code>*</code></dt>
+<dd><p>Function that creates and stores a tag</p>
+</dd>
 </dl>
 
 
 <br />
 <a name="addTag"></a>
 
-## addTag(tag)
+### addTag(tag)
 Function that adds a tag to the current line
 
 **Kind**: Method of SimpleFancyLog  
@@ -100,7 +106,7 @@ Function that adds a tag to the current line
 <br />
 <a name="addTags"></a>
 
-## addTags(tags)
+### addTags(tags)
 Function that adds one or multiple _tags to the current line
 
 **Kind**: Method of SimpleFancyLog  
@@ -116,7 +122,7 @@ Function that adds one or multiple _tags to the current line
 <br />
 <a name="removeTag"></a>
 
-## removeTag(tag)
+### removeTag(tag)
 Function that adds a tag to the current line
 
 **Kind**: Method of SimpleFancyLog  
@@ -132,7 +138,7 @@ Function that adds a tag to the current line
 <br />
 <a name="removeTags"></a>
 
-## removeTags(tags)
+### removeTags(tags)
 Function that removes one or multiple _tags from the current line
 
 **Kind**: method of SimpleFancyLog
@@ -148,7 +154,7 @@ Function that removes one or multiple _tags from the current line
 <br />
 <a name="toString"></a>
 
-## toString() ⇒ <code>String</code>
+### toString() ⇒ <code>String</code>
 Function that returns the string that will be logged when the log function is called
 
 **Kind**: Method of SimpleFancyLog  
@@ -158,7 +164,7 @@ Function that returns the string that will be logged when the log function is ca
 <br />
 <a name="log"></a>
 
-## log(message)
+### log(message)
 Function that logs a message with all the set tags. This function resets the message and the tags after it is displayed
 
 **Kind**: Method of SimpleFancyLog  
@@ -167,6 +173,40 @@ Function that logs a message with all the set tags. This function resets the mes
 | --- | --- | --- |
 | message | <code>String</code> | Message to display along with the tags |
 
+
+<br />
+<a name="findTag"></a>
+
+### findTag(toFind) ⇒ <code>\*</code>
+Function that looks for a given tag
+
+**Kind**: Static method of SimpleFancyLog  
+**Returns**: <code>\*</code> - - Either {} or the tag object  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| toFind | <code>Object</code> |  | Options to find the tag |
+| [toFind.type] | <code>String</code> | <code>&quot;&quot;</code> | Type of the tag to find (primarily for base predefined tags) |
+| [toFind.name] | <code>String</code> | <code>&quot;&quot;</code> | Name of the tag to find (for user defined tags) |
+
+
+<br />
+<a name="createTag"></a>
+
+### createTag(newTag) ⇒ <code>\*</code>
+Function that creates and stores a tag
+
+**Kind**: Static method of SimpleFancyLog 
+**Returns**: <code>\*</code> - - Either {} (in case of an error) or the newly created tag object  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| newTag | <code>Object</code> |  | Tag to create |
+| newTag.name | <code>String</code> |  | Name of the tag to create |
+| newTag.content | <code>String</code> |  | Content of the tag |
+| [newTag.type] | <code>String</code> | <code>&quot;default&quot;</code> | Type (classifier) of the tag |
+| [newTag.color] | <code>String</code> | <code>&quot;&quot;</code> | Color of the tag |
+| [newTag.bgColor] | <code>String</code> | <code>&quot;&quot;</code> | Background color of the tag |
 
 ---
 
