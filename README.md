@@ -24,7 +24,7 @@ And so on...
 
 # How to use
 
-`simple-fancy-log` uses a main class: the `FancyLogger` class.
+`simple-fancy-log` uses a main class: the `SimpleFancyLog` class.
 The module exports the class, so you have to create your own instance:
 
 This is what you will have to write in order to obtain the same log as [above](#with-simple-fancy-log) (comparative log between )
