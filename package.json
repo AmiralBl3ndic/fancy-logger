@@ -1,6 +1,6 @@
 {
   "name": "simple-fancy-log",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "A fancy logger for precise, tagged messages",
   "main": "index.js",
   "directories": {
