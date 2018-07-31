@@ -1,4 +1,5 @@
 const SimpleFancyLog = require("./index");
+const tags = require("./tags");
 
 const logger = new SimpleFancyLog();
 
@@ -56,3 +57,8 @@ for (let arg of args) {
 
 logger.addTag({color: "red", content: "Command Line Argument"});
 logger.log("You must pass on a command line parameter of the following:\n\t\t--demo1\n\t\t--demo2");
+
+
+SimpleFancyLog.createTag({name: "test-tag", content: "Test tag", color: "cyan"});
+logger.addTag(SimpleFancyLog.findTag({name: "test-tag"}));
+logger.log("This is a test");

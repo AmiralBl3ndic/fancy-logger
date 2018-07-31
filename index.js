@@ -1,5 +1,5 @@
 const log = require("fancy-log"); // So that we have the time in the log
-
+const tagsStore = require("./tags");
 
 const colors = {
   default: "\x1b[0m",
@@ -112,9 +112,59 @@ class SimpleFancyLog {
   }
 
 
-  static createTag () {
-
+  /** Function that creates and stores a tag
+   *
+   * @param {Object} newTag - Tag to create
+   * @param {String} newTag.name - Name of the tag to create
+   * @param {String} newTag.content - Content of the tag
+   * @param {String} [newTag.type = "default"] - Type (classifier) of the tag
+   * @param {String} [newTag.color = ""] - Color of the tag
+   * @param {String} [newTag.bgColor = ""] - Background color of the tag
+   * @return {*} - Either {} (in case of an error) or the newly created tag object
+   */
+  static createTag (newTag) {
+    return tagsStore.createTag(newTag);
   }
+
+
+  /** Function that looks for a given tag
+   *
+   * @param {Object} toFind - Options to find the tag
+   * @param {String} [toFind.type = ""] - Type of the tag to find (primarily for base predefined tags)
+   * @param {String} [toFind.name = ""] - Name of the tag to find (for user defined tags)
+   * @return {*} - Either {} or the tag object
+   */
+  static findTag (toFind) {
+    return tagsStore.findTag(toFind);
+  }
+
+
+  /** Function that creates and stores a tag
+   *
+   * @param {Object} newTag - Tag to create
+   * @param {String} newTag.name - Name of the tag to create
+   * @param {String} newTag.content - Content of the tag
+   * @param {String} [newTag.type = "default"] - Type (classifier) of the tag
+   * @param {String} [newTag.color = ""] - Color of the tag
+   * @param {String} [newTag.bgColor = ""] - Background color of the tag
+   * @return {*} - Either {} (in case of an error) or the newly created tag object
+   */
+  createTag (newTag) {
+    return tagsStore.createTag(newTag);
+  }
+
+
+  /** Function that looks for a given tag
+   *
+   * @param {Object} toFind - Options to find the tag
+   * @param {String} [toFind.type = ""] - Type of the tag to find (primarily for base predefined tags)
+   * @param {String} [toFind.name = ""] - Name of the tag to find (for user defined tags)
+   * @return {*} - Either {} or the tag object
+   */
+  findTag (toFind) {
+    return tagsStore.findTag(toFind);
+  }
+
 
 
   /** Function that adds a tag to the current line
